@@ -1,0 +1,359 @@
+/* ==========================================================================
+   Author: Fajle Rabbi Choyon
+   GitHub: https://github.com/choyon-dev
+   Website: https://choyon.pro
+   Email: hello@choyon.pro
+   Description: This CSS file is part of my public projects, showcasing 
+                my skills in web design and development. Feel free to use 
+                and modify the code with proper attribution.
+   ========================================================================== */
+
+:root {
+    --primary: #7B68EE;
+    --secondary: #6A89CC;
+    --bg: #1A1A2E;
+    --text: #F5F6FA;
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --mood-happy: #78E08F;
+    --mood-content: #6A89CC;
+    --mood-neutral: #F8C291;
+    --mood-sad: #E55039;
+    --mood-angry: #C0392B;
+    --card-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+[data-theme="light"] {
+    --bg: #F5F6FA;
+    --text: #2C3A47;
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    transition: all 0.3s ease;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: var(--card-shadow);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.header-controls {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+#calendar-toggle,
+#dark-mode-toggle {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+#calendar-toggle:hover,
+#dark-mode-toggle:hover {
+    transform: scale(1.1);
+    background: var(--glass-bg);
+}
+
+.mood-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.mood-option {
+    font-size: 3rem;
+    cursor: pointer;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.mood-option:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.mood-option.selected {
+    transform: scale(1.15);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.note-section {
+    margin-top: 25px;
+}
+
+#mood-note {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    resize: vertical;
+    min-height: 100px;
+    margin-bottom: 15px;
+}
+
+#save-btn {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    background: var(--primary);
+    color: white;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.history-container {
+    display: none;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+}
+
+.calendar-day {
+    aspect-ratio: 1;
+    padding: 8px;
+    font-size: 0.9em;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background: var(--glass-bg);
+    position: relative;
+    transition: all 0.2s ease;
+}
+
+.calendar-day .date-number {
+    font-size: 0.8em;
+    opacity: 0.7;
+    margin-bottom: 4px;
+}
+
+.calendar-day.today {
+    border: 2px solid var(--primary);
+}
+
+.calendar-day.has-entry {
+    background: var(--glass-bg);
+    transform: translateY(-2px);
+}
+
+.calendar-day:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--card-shadow);
+}
+
+/* Add styles for weekday labels */
+.weekday-label {
+    text-align: center;
+    padding: 5px;
+    font-size: 0.8em;
+    opacity: 0.7;
+    font-weight: bold;
+}
+
+.progress-bar {
+    height: 25px;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    margin-top: 15px;
+}
+
+.progress-segment {
+    height: 100%;
+    transition: flex-grow 0.3s ease;
+}
+
+.theme-toggle {
+    display: none;
+}
+
+/* Mood Colors */
+[data-mood="happy"] { background: var(--mood-happy); }
+[data-mood="content"] { background: var(--mood-content); }
+[data-mood="neutral"] { background: var(--mood-neutral); }
+[data-mood="sad"] { background: var(--mood-sad); }
+[data-mood="angry"] { background: var(--mood-angry); }
+
+@media (max-width: 768px) {
+    .mood-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .mood-option {
+        font-size: 2.5rem;
+    }
+}
+
+/* Improved Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s;
+}
+
+.modal-content {
+    width: 300px;
+    padding: 25px;
+    position: relative;
+    transform: scale(0.8);
+    animation: scaleUp 0.3s forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes scaleUp {
+    to { transform: scale(1); }
+}
+
+.close {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.close:hover {
+    transform: rotate(90deg);
+}
+
+/* Compact Calendar */
+.calendar-grid {
+    grid-template-columns: repeat(7, 1fr);
+    gap: 2px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.calendar-day {
+    aspect-ratio: 1;
+    padding: 3px;
+    font-size: 0.8em;
+    border-radius: 4px;
+    transition: transform 0.2s;
+}
+
+.calendar-day:hover {
+    transform: scale(1.1);
+    z-index: 1;
+}
+
+/* Enhanced Mood Grid */
+.mood-grid {
+    gap: 10px;
+    max-width: 600px;
+    margin: 0 auto 25px;
+}
+
+.mood-option {
+    font-size: 2.5rem;
+    padding: 15px;
+    border-radius: 12px;
+    transition: all 0.2s, transform 0.1s;
+}
+
+.mood-option:active {
+    transform: scale(0.95);
+}
+
+/* Improved Progress Bar */
+.progress-bar {
+    height: 20px;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.progress-segment {
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Footer Styles */
+.footer {
+    text-align: center;
+    padding: 15px;
+    margin-top: 30px;
+    font-size: 0.9rem;
+}
+
+.footer a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer a:hover {
+    color: var(--secondary);
+    text-decoration: underline;
+}
+
+.footer p {
+    margin: 5px 0;
+}

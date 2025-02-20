@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Mood Tracker - Reflect, Track, Thrive</title>
+    <link rel="icon" href="assets/Daily Mood Tracker.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="glass-card">
+            <h1>Daily Mood Tracker</h1>
+            <div class="header-controls">
+                <button type="button" id="calendar-toggle">📅</button>
+                <button type="button" id="dark-mode-toggle">☀️</button>
+            </div>
+        </header>
+
+        <main>
+            <div class="mood-selector glass-card">
+                <div class="mood-grid">
+                    <div class="mood-option" data-mood="happy">😃</div>
+                    <div class="mood-option" data-mood="content">🙂</div>
+                    <div class="mood-option" data-mood="neutral">😐</div>
+                    <div class="mood-option" data-mood="sad">😞</div>
+                    <div class="mood-option" data-mood="angry">😡</div>
+                </div>
+
+                <div class="note-section">
+                    <textarea id="mood-note" placeholder="How was your day?"></textarea>
+                    <button type="button" id="save-btn" class="glass-card">Save Entry</button>
+                </div>
+            </div>
+
+            <div class="history-container glass-card">
+                <div class="calendar-header">
+                    <button type="button" id="prev-month" class="month-nav">◀</button>
+                    <h2 id="current-month"></h2>
+                    <button type="button" id="next-month" class="month-nav">▶</button>
+                </div>
+                <div class="calendar-grid" id="calendar"></div>
+                <div class="progress-section">
+                    <h3>Mood Distribution</h3>
+                    <div class="progress-bar">
+                        <div class="progress-segment" data-mood="happy"></div>
+                        <div class="progress-segment" data-mood="content"></div>
+                        <div class="progress-segment" data-mood="neutral"></div>
+                        <div class="progress-segment" data-mood="sad"></div>
+                        <div class="progress-segment" data-mood="angry"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <div class="theme-toggle glass-card">
+            <button id="dark-mode-toggle">🌙</button>
+        </div>
+    </div>
+    <div class="modal" id="modal">
+        <div class="modal-content glass-card">
+            <span class="close">&times;</span>
+            <h3 id="modal-title"></h3>
+            <div id="modal-text"></div>
+            <div class="modal-actions">
+            </div>
+        </div>
+    </div>
+    
+    <audio id="sound-happy" src="data:audio/wav;base64,UklGRl9vT19XQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YU..."></audio>
+
+    <footer class="footer glass-card">
+        <p>Created with ❤️ by <a href="https://github.com/choyon-dev" target="_blank">Fajle Rabbi Choyon</a></p>
+        <p>© 2025 Daily Mood Tracker</p>
+    </footer>
+    
+    <script src="app.js"></script>
+</body>
+</html>
