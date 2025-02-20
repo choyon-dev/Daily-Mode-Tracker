@@ -52,7 +52,7 @@ A beautiful, interactive web application for tracking your daily moods and emoti
 
 ## 🌐 Live Demo
 
-[🔗 View Live Project](https://your-username.github.io/daily-mood-tracker/)
+[🔗 View Live Project](https://choyon-dev.github.io/Daily-Mode-Tracker/)
 
 ## 📜 License
 
